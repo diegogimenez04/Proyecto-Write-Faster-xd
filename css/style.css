@@ -1,3 +1,26 @@
+.titlePrincipal{
+    color: aqua;
+    text-align: center;
+    width: auto;
+    height: auto;
+    border: 2px;
+    margin: auto;
+}
+.buttonLogInIndex{
+    align-content: center;
+    vertical-align: middle;
+    color: aqua;
+    margin: auto;
+}
+.buttonRegisterIndex{
+    align-content: center;
+    vertical-align: middle;
+    color: aqua;
+    margin: auto;
+}
+.flex{
+    display: flex;
+}
 .centrar_h {
     text-align:center;
     align-content: center;

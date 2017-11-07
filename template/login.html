@@ -1,6 +1,7 @@
 <!DOCTYPE>
 <head>
     <meta charset="utf-8">
+    <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
     <link href="../css/modalLogin.css" type="text/css" rel="stylesheet">
     <script src="../js/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="../js/login.js"></script>
@@ -28,4 +29,16 @@
             </tr>
         </table>
     </center>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyD7gFInlF1O98jKXhvwJEHRhNuDPMhuux8",
+            authDomain: "write-faster-net.firebaseapp.com",
+            databaseURL: "https://write-faster-net.firebaseio.com",
+            projectId: "write-faster-net",
+            storageBucket: "write-faster-net.appspot.com",
+            messagingSenderId: "333583171425"
+        };
+        firebase.initializeApp(config);
+    </script>
 </body>
