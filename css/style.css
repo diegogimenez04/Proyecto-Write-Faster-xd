@@ -1,0 +1,105 @@
+.centrar_h {
+    text-align:center;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+}
+.TextInput-fragment {
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 0;
+    line-height: 1.2;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-align: left;
+    font-family: "Ubuntu Mono","Lucida Console",monospace;
+    font-size: 1.6rem;
+    font-weight: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    word-spacing: normal;
+    color: #27253E;
+}
+elemento {
+}
+.TextInput-fragment {
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 0;
+    line-height: 1.2;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-align: left;
+    font-family: "Ubuntu Mono","Lucida Console",monospace;
+    font-size: 1.6rem;
+    font-weight: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    word-spacing: normal;
+    color: #27253E;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+body {
+    color: #27253E;
+}
+html {
+    font-size: 12.80625px;
+}
+html {
+    font-size: 12px;
+}
+html {
+    font-family: Muli,Arial,sans-serif;
+    font-size: 11px;
+    line-height: 1.6;
+}
+.txtInput{
+    color: #555;
+    width: 98%;
+    height: 50px;
+    font-family: Arial,serif;
+    font-size: 26px;
+    margin-top: 2px;
+    margin-bottom: 10px;
+    background: transparent none repeat scroll 0;
+    border-width: medium;
+}
+
+.blink_text {
+
+    animation:1s blinker linear infinite;
+    -webkit-animation:1s blinker linear infinite;
+    -moz-animation:1s blinker linear infinite;
+
+    color: black;
+}
+
+.centerAlign{
+    color: darkred;
+    font-size: 7; 
+}
+
+@-moz-keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+span {
+display:table;
+margin:0 auto;
+}
