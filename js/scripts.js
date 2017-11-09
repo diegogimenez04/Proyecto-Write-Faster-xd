@@ -60,13 +60,13 @@ function CreateChart(){
 
     var chart = new CanvasJS.Chart("chartContainer",{
         title :{
-            text: "Live Data"
+            text: "Grafico"
         },
         axisX: {
-            title: "Axis X Title"
+            title: "Eje X"
         },
         axisY: {
-            title: "Units"
+            title: "Promedio"
         },
         data: [{
             type: "line",
@@ -127,8 +127,9 @@ function checkKeyPressed(e){
     }
 
     var key = String.fromCharCode(keynum);
-
-    if(e.which != 8){
+    console.log(key)
+    
+    if(keynum != 8, 225, 17){
       if (key.toLowerCase() == document.getElementById("elSpan").innerHTML[index].toLowerCase()) {
 
           document.getElementById("elSpan").setAttribute("style", "color : green");
@@ -191,4 +192,14 @@ function finishCurrentGame() {
     return avereage;
 
 }
+
+var scores=[];
+var numScores = 0;
+
+if (finishCurrentGame()){
+    scores.push(numScores + " " + avereage);
+    numScores++;
+    console.log("anda gController");
+}
+
 firebase.initializeApp(config);

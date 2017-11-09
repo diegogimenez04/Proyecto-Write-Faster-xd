@@ -9,17 +9,23 @@
 .buttonLogInIndex{
     align-content: center;
     vertical-align: middle;
-    color: aqua;
+    color: blue;
     margin: auto;
+    border-radius: 16px
 }
 .buttonRegisterIndex{
     align-content: center;
     vertical-align: middle;
-    color: aqua;
+    color: blue;
     margin: auto;
+    border-radius: 16px;
 }
 .flex{
     display: flex;
+    text-align:center;
+    align-content: center;
+    align-items: center;
+    align-self: center;
 }
 .centrar_h {
     text-align:center;
@@ -43,7 +49,7 @@
     word-spacing: normal;
     color: #27253E;
 }
-elemento {
+.elemento {
 }
 .TextInput-fragment {
     max-width: 50rem;
@@ -123,6 +129,6 @@ html {
 }
 
 span {
-display:table;
-margin:0 auto;
+    display:table;
+    margin:0 auto;
 }

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="../js/jquery-3.2.1.min.js" type="text/javascript"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <!--<script src="jquery-3.2.1.min.js"></script>-->
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+        <script type="text/javascript" src="../js/scripts.js"></script>
+        <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    </head>
+    <body>
+        <div class="flex">
+            <div class="col-xs-6">
+                <h1 class="titlePrincipal">
+                    Bienvenido a Proyecto Write faster
+                </h1>
+            </div>
+            <div class="col-xs-3" id="registerIndex">
+                <input class="buttonRegisterIndex" id="btnRegisterIndex" type="button" value="Register">
+            </div>
+            <div class="col-xs-3" id="logInIndex">
+                <input class="buttonLogInIndex" id="btnLogInIndex" type="button" value="Log In">
+            </div>
+        </div>
+        <div class="img">
+            <div id="chartContainer" class="img-responsive" style="height: 260px; width: 100%;"></div>
+        </div>
+        <div>
+            <!--            <input type="button" onclick="makeid()" value="Generar Texto">-->
+            <span unselectable="on" class="centerAlign" id="elSpan"
+                  ></span>
+            <input class="txtInput" id="txtInput" value="" autocorrect="off" autocapitalize="off" type="text" onkeydown="checkKeyPressed(event)">
+        </div>
+        <div class="imagenConTeclado">
+            <img src="../static/keyboardreal.png" class="img-responsive">
+        </div>
+    </body>
+    <!--<script type="text/javascript">
+var index = 0;
+function myKeyPress(e){
+var keynum;
+
+
+if(window.event) { // IE
+keynum = e.keyCode;
+} else if(e.which){ // Netscape/Firefox/Opera
+keynum = e.which;
+}
+
+var key = String.fromCharCode(keynum);
+
+console.log(key.toLowerCase(), " ", document.getElementById("elSpan").innerHTML[index].toLowerCase());
+
+if(key.toLowerCase() == document.getElementById("elSpan").innerHTML[index].toLowerCase()) {
+
+index += 1;
+document.getElementById("elSpan").setAttribute("style", "color : green");
+
+} else {
+document.getElementById("elSpan").setAttribute("style", "color : red");
+}
+}
+</script>-->
+</html>
