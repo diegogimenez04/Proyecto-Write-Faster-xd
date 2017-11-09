@@ -14,11 +14,31 @@ var newText = ""
 var possible = "abcdefghijklmnopqrstuvwxyz";
 //var randomIzeNumber = Math.random(10, 40);
 
-//ABCDEFGHIJKLMNOPQRSTUVWXYZ
+$.ajax({
+    url: "http://www.randomtext.me/api/lorem/p-1/1-6",
+    type: "GET",
+    datatype: 'json',
+    success: function(data) {
+        console.log(JSON.stringify(data));
+        console.log("Todo ok");
+        newText = data.text_out.innerHTML
+    },
+    error: function(e){
+        alert(JSON.stringify(e));
+    },
+})
 
-for (var i = 0; i <= 10; i++){
+/**ABCDEFGHIJKLMNOPQRSTUVWXYZ
+var contador = 0;
+var numero = 200
+for (var i = 0; i <= numero; i++){
     newText += possible.charAt(Math.floor(Math.random() * possible.length));
-}
+    contador += 1;
+    if (contador == 5 && i < numero){
+        contador = 0
+        newText += " "
+    } 
+}**/
 
 //var timeFinished = new Time();
 var chart;
@@ -31,7 +51,6 @@ yVal = 1;
 var dps = [{x: 0, y: 0}];
 
 function CreateChart(){
-
 
     var chart = new CanvasJS.Chart("chartContainer",{
         title :{
@@ -109,6 +128,7 @@ function checkKeyPressed(e){
         xVal++;
         yVal++;
         dps.push({x: xVal, y: yVal});
+        CreateChart();
         console.log(key.toLowerCase(), " ", document.getElementById("elSpan").innerHTML[index].toLowerCase());
 
 
@@ -129,6 +149,7 @@ function checkKeyPressed(e){
         xVal++;
         yVal = yVal - 1;
         dps.push({x: xVal,y: yVal});
+        CreateChart();
     }
 
 
