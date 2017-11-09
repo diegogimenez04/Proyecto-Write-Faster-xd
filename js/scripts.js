@@ -10,13 +10,25 @@ var config = {
     messagingSenderId: "333583171425"
 };
 
+var newText = ""
+var possible = "abcdefghijklmnopqrstuvwxyz";
+//var randomIzeNumber = Math.random(10, 40);
+
+//ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+for (var i = 0; i <= 10; i++){
+    newText += possible.charAt(Math.floor(Math.random() * possible.length));
+}
+
 //var timeFinished = new Time();
 var chart;
 var pointsCounter = [0, 0];
-var newText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Itaque hic ipse iam pridem est reiectus; Parvi enim primo ortu sic iacent, tamquam omnino sine animo sint. Portenta haec esse dicit, neque ea ratione ullo modo posse vivi; Maximus dolor, inquit, brevis est" 
-//Duo Reges: constructio interrete. Falli igitur possumus. Sed potestne rerum maior esse dissensio? Quid, quod res alia tota est? Age, inquies, ista parva sunt. Conferam avum tuum Drusum cum C. Age, inquies, ista parva sunt. Cyrenaici quidem non recusant; Expectoque quid ad id, quod quaerebam, respondeas. Inde sermone vario sex illa a Dipylo stadia confecimus. Graecum enim hunc versum nostis omnes-: Suavis laborum est praeteritorum memoria. Cur iustitia laudatur? Laboro autem non sine causa; Animi enim quoque dolores percipiet omnibus partibus maiores quam corporis. Quacumque enim ingredimur, in aliqua historia vestigium ponimus. Inde igitur, inquit, ordiendum est.Quis suae urbis conservatorem Codrum, quis Erechthei filias non maxime laudat? Naturales divitias dixit parabiles esse, quod parvo esset natura contenta. At coluit ipse amicitias. Nihilo beatiorem esse Metellum quam Regulum. Prioris generis est docilitas, memoria; Sint modo partes vitae beatae. Nos quidem Virtutes sic natae sumus, ut tibi serviremus, aliud negotii nihil habemus.
+//Lorem ipsum dolor sit amet, consectetur adipiscing elit. Itaque hic ipse iam pridem est reiectus; Parvi enim primo ortu sic iacent, tamquam omnino sine animo sint. Portenta haec esse dicit, neque ea ratione ullo modo posse vivi; Maximus dolor, inquit, brevis est Duo Reges: constructio interrete. Falli igitur possumus. Sed potestne rerum maior esse dissensio? Quid, quod res alia tota est? Age, inquies, ista parva sunt. Conferam avum tuum Drusum cum C. Age, inquies, ista parva sunt. Cyrenaici quidem non recusant; Expectoque quid ad id, quod quaerebam, respondeas. Inde sermone vario sex illa a Dipylo stadia confecimus. Graecum enim hunc versum nostis omnes-: Suavis laborum est praeteritorum memoria. Cur iustitia laudatur? Laboro autem non sine causa; Animi enim quoque dolores percipiet omnibus partibus maiores quam corporis. Quacumque enim ingredimur, in aliqua historia vestigium ponimus. Inde igitur, inquit, ordiendum est.Quis suae urbis conservatorem Codrum, quis Erechthei filias non maxime laudat? Naturales divitias dixit parabiles esse, quod parvo esset natura contenta. At coluit ipse amicitias. Nihilo beatiorem esse Metellum quam Regulum. Prioris generis est docilitas, memoria; Sint modo partes vitae beatae. Nos quidem Virtutes sic natae sumus, ut tibi serviremus, aliud negotii nihil habemus.
 
-var dps = [{x: 1, y: 10}, {x: 2, y: 13}, {x: 3, y: 18}, {x: 4, y: 20}, {x: 5, y: 17},{x: 6, y: 10}, {x: 7, y: 13}, {x: 8, y: 18}, {x: 9, y: 20}, {x: 10, y: 17}];
+xVal = 1;
+yVal = 1;
+
+var dps = [{x: 0, y: 0}];
 
 function CreateChart(){
 
@@ -38,29 +50,7 @@ function CreateChart(){
     });
 
     chart.render();
-    var xVal = dps.length + 1;
-    var yVal = 15;	
-    var updateInterval = 10000000;
-
-    var updateChart = function () {
-
-
-        yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
-        dps.push({x: xVal,y: yVal});
-
-        xVal++;
-        if (dps.length >  10 )
-        {
-            dps.shift();				
-        }
-
-        chart.render();		
-
-        // update chart after specified time. 
-
-    };
-
-    setInterval(function(){updateChart()}, updateInterval);
+    var updateInterval = console.timeEnd("checkKeyPressed");
 }
 
 var pointsCounter = 0;
@@ -116,9 +106,9 @@ function checkKeyPressed(e){
 
         document.getElementById("elSpan").setAttribute("style", "color : green");
         pointsCounter[0] += 1;
-        //        dataPoints.push({x: xValue++ ,y: yValue++});
-        //        timeFinished.getTime();
-
+        xVal++;
+        yVal++;
+        dps.push({x: xVal, y: yVal});
         console.log(key.toLowerCase(), " ", document.getElementById("elSpan").innerHTML[index].toLowerCase());
 
 
@@ -136,7 +126,9 @@ function checkKeyPressed(e){
     } else {
         document.getElementById("elSpan").setAttribute("style", "color : red");
         pointsCounter[1] += 1;
-        //        dataPoints.push({x: ++,y: yValue-1});
+        xVal++;
+        yVal = yVal - 1;
+        dps.push({x: xVal,y: yVal});
     }
 
 
