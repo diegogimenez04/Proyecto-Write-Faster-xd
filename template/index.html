@@ -10,24 +10,8 @@
         <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
         <script type="text/javascript" src="../js/scripts.js"></script>
         <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-        <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
-        <script>
-
-            // Enable pusher logging - don't include this in production
-            Pusher.logToConsole = true;
-
-            var pusher = new Pusher('29c6d48520f9cb7f92d3', {
-                cluster: 'us2',
-                encrypted: true
-            });
-
-            var channel = pusher.subscribe('my-channel');
-            channel.bind('my-event', function(data) {
-                alert(data.message);
-            });
-        </script>
     </head>
-    <body onload="initNewGame(newText), CreateChart()">
+    <body>
         <div class="flex">
             <div class="col-xs-6">
                 <h1 class="titlePrincipal">

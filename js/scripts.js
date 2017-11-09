@@ -12,22 +12,24 @@ var config = {
 
 var newText = ""
 var possible = "abcdefghijklmnopqrstuvwxyz";
+var textAray;
 //var randomIzeNumber = Math.random(10, 40);
 
 $.ajax({
-    url: "http://www.randomtext.me/api/lorem/p-1/1-6",
+    url: "http://www.randomtext.me/api/lorem/p-1/3-9",
     type: "GET",
     datatype: 'json',
     success: function(data) {
         console.log(JSON.stringify(data));
         console.log("Todo ok");
-        newText = data.text_out.innerHTML
+        newText += data.text_out;
+        newText = newText.slice(15, -6)
+        initNewGame(newText);
     },
     error: function(e){
         alert(JSON.stringify(e));
     },
 })
-
 /**ABCDEFGHIJKLMNOPQRSTUVWXYZ
 var contador = 0;
 var numero = 200
@@ -37,18 +39,22 @@ for (var i = 0; i <= numero; i++){
     if (contador == 5 && i < numero){
         contador = 0
         newText += " "
-    } 
+    }
 }**/
 
 //var timeFinished = new Time();
 var chart;
 var pointsCounter = [0, 0];
-//Lorem ipsum dolor sit amet, consectetur adipiscing elit. Itaque hic ipse iam pridem est reiectus; Parvi enim primo ortu sic iacent, tamquam omnino sine animo sint. Portenta haec esse dicit, neque ea ratione ullo modo posse vivi; Maximus dolor, inquit, brevis est Duo Reges: constructio interrete. Falli igitur possumus. Sed potestne rerum maior esse dissensio? Quid, quod res alia tota est? Age, inquies, ista parva sunt. Conferam avum tuum Drusum cum C. Age, inquies, ista parva sunt. Cyrenaici quidem non recusant; Expectoque quid ad id, quod quaerebam, respondeas. Inde sermone vario sex illa a Dipylo stadia confecimus. Graecum enim hunc versum nostis omnes-: Suavis laborum est praeteritorum memoria. Cur iustitia laudatur? Laboro autem non sine causa; Animi enim quoque dolores percipiet omnibus partibus maiores quam corporis. Quacumque enim ingredimur, in aliqua historia vestigium ponimus. Inde igitur, inquit, ordiendum est.Quis suae urbis conservatorem Codrum, quis Erechthei filias non maxime laudat? Naturales divitias dixit parabiles esse, quod parvo esset natura contenta. At coluit ipse amicitias. Nihilo beatiorem esse Metellum quam Regulum. Prioris generis est docilitas, memoria; Sint modo partes vitae beatae. Nos quidem Virtutes sic natae sumus, ut tibi serviremus, aliud negotii nihil habemus.
 
 xVal = 1;
 yVal = 1;
 
 var dps = [{x: 0, y: 0}];
+$(function() {
+
+  CreateChart();
+});
+
 
 function CreateChart(){
 
@@ -117,49 +123,43 @@ function checkKeyPressed(e){
 
     if(e.which){ // Netscape/Firefox/Opera
         keynum = e.which;
+        console.log(keynum);
     }
 
     var key = String.fromCharCode(keynum);
 
-    if (key.toLowerCase() == document.getElementById("elSpan").innerHTML[index].toLowerCase()) {
+    if(e.which != 8){
+      if (key.toLowerCase() == document.getElementById("elSpan").innerHTML[index].toLowerCase()) {
 
-        document.getElementById("elSpan").setAttribute("style", "color : green");
-        pointsCounter[0] += 1;
-        xVal++;
-        yVal++;
-        dps.push({x: xVal, y: yVal});
-<<<<<<< HEAD
-        CreateChart();
-=======
-        CreateChart()
->>>>>>> 6f8f090f6aa07252bf1688716f57b5a6da511f5f
-        console.log(key.toLowerCase(), " ", document.getElementById("elSpan").innerHTML[index].toLowerCase());
+          document.getElementById("elSpan").setAttribute("style", "color : green");
+          pointsCounter[0] += 1;
+          xVal++;
+          yVal++;
+          dps.push({x: xVal, y: yVal});
+          CreateChart();
+          console.log(key.toLowerCase(), " ", document.getElementById("elSpan").innerHTML[index].toLowerCase());
 
 
-        console.log(document.getElementById("txtInput").value.toLowerCase(), " ", document.getElementById("elSpan").innerHTML.toLowerCase());
+          console.log(document.getElementById("txtInput").value.toLowerCase(), " ", document.getElementById("elSpan").innerHTML.toLowerCase());
 
-        if ((document.getElementById("txtInput").value.toLowerCase() + key.toLowerCase()) == document.getElementById("elSpan").innerHTML.toLowerCase()) {
+          if ((document.getElementById("txtInput").value.toLowerCase() + key.toLowerCase()) == document.getElementById("elSpan").innerHTML.toLowerCase()) {
 
-            console.log("You win");
-            document.getElementById('elSpan').innerHTML = "";
-            pointsCounter[0] += 1;
-            finishCurrentGame();
+              console.log("You win");
+              document.getElementById('elSpan').innerHTML = "";
+              pointsCounter[0] += 1;
+              finishCurrentGame();
 
-        }
+          }
 
-    } else {
-        document.getElementById("elSpan").setAttribute("style", "color : red");
-        pointsCounter[1] += 1;
-        xVal++;
-        yVal = yVal - 1;
-        dps.push({x: xVal,y: yVal});
-<<<<<<< HEAD
-        CreateChart();
-=======
-        CreateChart()
->>>>>>> 6f8f090f6aa07252bf1688716f57b5a6da511f5f
+      } else {
+          document.getElementById("elSpan").setAttribute("style", "color : red");
+          pointsCounter[1] += 1;
+          xVal++;
+          yVal = yVal - 1;
+          dps.push({x: xVal,y: yVal});
+          CreateChart();
+      }
     }
-
 
 }
 
