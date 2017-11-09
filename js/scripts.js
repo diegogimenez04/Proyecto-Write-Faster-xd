@@ -37,10 +37,10 @@ function CreateChart(){
         title :{
             text: "Live Data"
         },
-        axisX: {						
+        axisX: {
             title: "Axis X Title"
         },
-        axisY: {						
+        axisY: {
             title: "Units"
         },
         data: [{
@@ -109,6 +109,7 @@ function checkKeyPressed(e){
         xVal++;
         yVal++;
         dps.push({x: xVal, y: yVal});
+        CreateChart()
         console.log(key.toLowerCase(), " ", document.getElementById("elSpan").innerHTML[index].toLowerCase());
 
 
@@ -129,6 +130,7 @@ function checkKeyPressed(e){
         xVal++;
         yVal = yVal - 1;
         dps.push({x: xVal,y: yVal});
+        CreateChart()
     }
 
 
