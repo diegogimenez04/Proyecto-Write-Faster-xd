@@ -202,9 +202,11 @@ function finishCurrentGame() {
     }
 
     document.getElementById("txtInput").value = "";
-    window.alert("Le pegaste a " + avereage + "% letras");
-    document.getElementById("elSpan").innerHTML = "";
+   
     pointsCounter = [0, 0];
+    window.alert("Le pegaste a " + avereage + "% letras");
+    $(".elSpan").text("");
+    $("#txtInput").val(null);
     return avereage;
 
 }
