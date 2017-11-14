@@ -133,7 +133,7 @@ function checkKeyPressed(e){
     console.log(key);
     console.log (keynum);
 
-    var arrayNumNotAllowed = [8, 225, 17, 9, 16, 18, 17, 20];
+    var arrayNumNotAllowed = [8, 225, 17, 9, 16, 18, 17, 20, 37, 38, 39, 40];
     var count = true;
 
     for(var i = 0; i < arrayNumNotAllowed.length; i++){
@@ -188,8 +188,9 @@ function initNewGame(sentence) {
 
 function finishCurrentGame() {
 
+    var correct = (pointsCounter[0] - pointsCounter[1]);
 
-    avereage = ((pointsCounter[0] / pointsCounter[1])-1)*100;
+    avereage = (correct/pointsCounter[0])*100
     if (avereage < 0) {
 
         avereage = 0;
