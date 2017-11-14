@@ -16,7 +16,7 @@ var textAray;
 //var randomIzeNumber = Math.random(10, 40);
 
 $.ajax({
-    url: "http://www.randomtext.me/api/lorem/p-1/3-9",
+    url: "http://www.randomtext.me/api/lorem/p-1/5-9",
     type: "GET",
     datatype: 'json',
     success: function(data) {
@@ -30,6 +30,9 @@ $.ajax({
         alert(JSON.stringify(e));
     },
 })
+
+
+
 /**ABCDEFGHIJKLMNOPQRSTUVWXYZ
 var contador = 0;
 var numero = 200
@@ -52,7 +55,7 @@ yVal = 1;
 var dps = [{x: 0, y: 0}];
 $(function() {
 
-  CreateChart();
+    CreateChart();
 });
 
 
@@ -127,39 +130,51 @@ function checkKeyPressed(e){
     }
 
     var key = String.fromCharCode(keynum);
-    console.log(key)
-    
-    if(keynum != 8, 225, 17){
-      if (key.toLowerCase() == document.getElementById("elSpan").innerHTML[index].toLowerCase()) {
+    console.log(key);
+    console.log (keynum);
 
-          document.getElementById("elSpan").setAttribute("style", "color : green");
-          pointsCounter[0] += 1;
-          xVal++;
-          yVal++;
-          dps.push({x: xVal, y: yVal});
-          CreateChart();
-          console.log(key.toLowerCase(), " ", document.getElementById("elSpan").innerHTML[index].toLowerCase());
+    var arrayNumNotAllowed = [8, 225, 17, 9, 16, 18, 17, 20];
+    var count = true;
+
+    for(var i = 0; i < arrayNumNotAllowed.length; i++){
+        if (arrayNumNotAllowed[i] == keynum){count = false}
+    }
+    console.log(parseInt(keynum));
+    console.log(count);
+    if(count==false){
+        console.log("esta usando una letra invalida")
+    }
+    else{
+        if (key.toLowerCase() == document.getElementById("elSpan").innerHTML[index].toLowerCase()) {
+
+            document.getElementById("elSpan").setAttribute("style", "color : green");
+            pointsCounter[0] += 1;
+            xVal++;
+            yVal++;
+            dps.push({x: xVal, y: yVal});
+            CreateChart();
+            console.log(key.toLowerCase(), " ", document.getElementById("elSpan").innerHTML[index].toLowerCase());
 
 
-          console.log(document.getElementById("txtInput").value.toLowerCase(), " ", document.getElementById("elSpan").innerHTML.toLowerCase());
+            console.log(document.getElementById("txtInput").value.toLowerCase(), " ", document.getElementById("elSpan").innerHTML.toLowerCase());
 
-          if ((document.getElementById("txtInput").value.toLowerCase() + key.toLowerCase()) == document.getElementById("elSpan").innerHTML.toLowerCase()) {
+            if ((document.getElementById("txtInput").value.toLowerCase() + key.toLowerCase()) == document.getElementById("elSpan").innerHTML.toLowerCase()) {
 
-              console.log("You win");
-              document.getElementById('elSpan').innerHTML = "";
-              pointsCounter[0] += 1;
-              finishCurrentGame();
+                console.log("You win");
+                document.getElementById('elSpan').innerHTML = "";
+                pointsCounter[0] += 1;
+                finishCurrentGame();
 
-          }
+            }
 
-      } else {
-          document.getElementById("elSpan").setAttribute("style", "color : red");
-          pointsCounter[1] += 1;
-          xVal++;
-          yVal = yVal - 1;
-          dps.push({x: xVal,y: yVal});
-          CreateChart();
-      }
+        } else {
+            document.getElementById("elSpan").setAttribute("style", "color : red");
+            pointsCounter[1] += 1;
+            xVal++;
+            yVal = yVal - 1;
+            dps.push({x: xVal,y: yVal});
+            CreateChart();
+        }
     }
 
 }
@@ -174,7 +189,7 @@ function initNewGame(sentence) {
 function finishCurrentGame() {
 
 
-    avereage = ((pointsCounter[0] - pointsCounter[1]) * 100) / document.getElementById("elSpan").innerHTML.length
+    avereage = ((pointsCounter[0] / pointsCounter[1])-1)*100;
     if (avereage < 0) {
 
         avereage = 0;
