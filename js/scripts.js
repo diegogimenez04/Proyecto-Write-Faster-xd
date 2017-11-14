@@ -1,5 +1,6 @@
 console.log('Ejecutando javascript...');
 
+
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyD7gFInlF1O98jKXhvwJEHRhNuDPMhuux8",
@@ -118,6 +119,8 @@ function getCaretPosition (oField) {
 
 }
 
+var correct = (pointsCounter[0] - pointsCounter[1]);
+
 function checkKeyPressed(e){
 
     //    timeFinished.setTime(5);
@@ -148,6 +151,8 @@ function checkKeyPressed(e){
         if (key.toLowerCase() == document.getElementById("elSpan").innerHTML[index].toLowerCase()) {
 
             document.getElementById("elSpan").setAttribute("style", "color : green");
+            correct = (pointsCounter[0] - pointsCounter[1]);
+            avereage = (correct/pointsCounter[0])*100;
             pointsCounter[0] += 1;
             xVal++;
             yVal++;
@@ -169,6 +174,9 @@ function checkKeyPressed(e){
 
         } else {
             document.getElementById("elSpan").setAttribute("style", "color : red");
+            correct = (pointsCounter[0] - pointsCounter[1]);
+            avereage = (correct/pointsCounter[0])*100;
+            document.getElementById("lblAvereage").innerHTML = avereage + " hitted";
             pointsCounter[1] += 1;
             xVal++;
             yVal = yVal - 1;
@@ -188,7 +196,7 @@ function initNewGame(sentence) {
 
 function finishCurrentGame() {
 
-    var correct = (pointsCounter[0] - pointsCounter[1]);
+    
 
     avereage = (correct/pointsCounter[0])*100
     if (avereage < 0) {
@@ -202,7 +210,7 @@ function finishCurrentGame() {
     }
 
     document.getElementById("txtInput").value = "";
-   
+
     pointsCounter = [0, 0];
     window.alert("Le pegaste a " + avereage + "% letras");
     $(".elSpan").text("");
