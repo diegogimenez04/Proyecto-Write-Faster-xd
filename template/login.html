@@ -5,40 +5,81 @@
     <link href="../css/modalLogin.css" type="text/css" rel="stylesheet">
     <script src="../js/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="../js/login.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
 </head>
-<body onload="borrartodo()">
-    <center>
-        <h1>Log in in our page of write faster!</h1>
-        <table>
-            <tr>
-                <td>
-                    Username<input type="text" name="userid" id="userid" placeholder="Ingrese usuario">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Password<input type="password" name="pswrd" id="userpsw" placeholder="Ingrese contraseña">
-                </td>
-            </tr>
-        </table>
-        <table>
-            <tr>
-                <td><input type="button" value="Register" onclick="onClickRegister()" id="btnRegister" class="btnRegister" id="btnRegister"></td>
-                <td><input type="button" onclick="window.open('../template/index.html')" value="Login"/></td>
-                <td><input type="reset" value="Cancel" onclick="borrartodo()"></td>
-            </tr>
-        </table>
-    </center>
-    <script>
+<body>
+  <script>
         // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyD7gFInlF1O98jKXhvwJEHRhNuDPMhuux8",
-            authDomain: "write-faster-net.firebaseapp.com",
-            databaseURL: "https://write-faster-net.firebaseio.com",
-            projectId: "write-faster-net",
-            storageBucket: "write-faster-net.appspot.com",
-            messagingSenderId: "333583171425"
-        };
-        firebase.initializeApp(config);
+        
+  </script>
+    <center>
+        
+        <header class="bg-primary text-white">
+            <center>
+            <div class="container text-center">
+                <h1>Log in in our page of write faster!</h1>
+              <table>
+                <td ><button onclick="document.getElementById('lg01').style.display='block'">Register</button></td>
+                <td ><button onclick="document.getElementById('id01').style.display='block'">Login</button></td>
+              </table>
+            </div>
+            </center>
+        </header>
+                
+    </center>
+
+    <!-- The Modal -->
+    <div id="id01" class="modal">
+      <span onclick="document.getElementById('id01').style.display='none'" 
+    class="close" title="Close Modal">&times;</span>
+
+      <!-- Modal Content -->
+        <div class="container">
+          <label><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="uname" id="usrL" required>
+
+          <label><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" id="pswL" required>
+
+          <button type="submit">Login</button>
+          <input type="checkbox" checked="checked"> Remember me
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+          <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+      </form>
+    </div>
+
+    <div id="lg01" class="modal">
+      <span onclick="document.getElementById('id01').style.display='none'" 
+    class="close" title="Close Modal">&times;</span>
+
+      <form class="modal-content animate" action="/action_page.php">
+
+        <div class="container">
+          <label><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="uname" id="usrR" required>
+
+          <label><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" id="pswR" required>
+
+          <label><b>Email</b></label>
+          <input type="Email" placeholder="Enter mail" name="mail" id="mailR" required>
+
+          <button type="submit" onclick="">Register</button>
+          <input type="checkbox" onclick="onClickRegister()" checked="checked"> Remember me
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+          <span class="psw">Forgot <a href="">password?</a></span>
+        </div>
+      </form>
+    </div>
+    <script type="text/javascript">
+        // Get the modal
+    
     </script>
 </body>

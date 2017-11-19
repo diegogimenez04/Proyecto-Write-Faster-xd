@@ -150,10 +150,11 @@ function checkKeyPressed(e){
     else{
         if (key.toLowerCase() == document.getElementById("elSpan").innerHTML[index].toLowerCase()) {
 
+            pointsCounter[0] += 1;
             document.getElementById("elSpan").setAttribute("style", "color : green");
             correct = (pointsCounter[0] - pointsCounter[1]);
             avereage = (correct/pointsCounter[0])*100;
-            pointsCounter[0] += 1;
+            document.getElementById('lblAvereage').innerHTML = "Your avereage is " + avereage + " % of correct words";
             xVal++;
             yVal++;
             dps.push({x: xVal, y: yVal});
@@ -173,11 +174,11 @@ function checkKeyPressed(e){
             }
 
         } else {
+            pointsCounter[1] += 1;
             document.getElementById("elSpan").setAttribute("style", "color : red");
             correct = (pointsCounter[0] - pointsCounter[1]);
             avereage = (correct/pointsCounter[0])*100;
-            document.getElementById("lblAvereage").innerHTML = avereage + " hitted";
-            pointsCounter[1] += 1;
+            document.getElementById("lblAvereage").innerHTML = "Your avereage is "+ avereage + " % hitted";
             xVal++;
             yVal = yVal - 1;
             dps.push({x: xVal,y: yVal});
