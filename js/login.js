@@ -1,69 +1,96 @@
-console.log("Initializing...");
-
 var config = {
-            apiKey: "AIzaSyD7gFInlF1O98jKXhvwJEHRhNuDPMhuux8",
-            authDomain: "write-faster-net.firebaseapp.com",
-            databaseURL: "https://write-faster-net.firebaseio.com",
-            projectId: "write-faster-net",
-            storageBucket: "write-faster-net.appspot.com",
-            messagingSenderId: "333583171425"
-        };
-
-var user = {
-	this.user: document.getElementById('usrR').innerHTML,
-	this.psw: document.getElementById('pswR').innerHTML,
-	this.mail: document.getElementById('mailR').innerHTML,
+  apiKey: "AIzaSyD7gFInlF1O98jKXhvwJEHRhNuDPMhuux8",
+  authDomain: "write-faster-net.firebaseapp.com",
+  databaseURL: "https://write-faster-net.firebaseio.com",
+  projectId: "write-faster-net",
+  storageBucket: "write-faster-net.appspot.com",
+  messagingSenderId: "333583171425"
 };
 
+function signOut(argument) {
 
-function onClickRegister(){
-	config.createUser(user, function(error)) = {
-		user: document.getElementById('usrR').innerHTML,
-		psw: document.getElementById('pswR').innerHTML,
-		mail: document.getElementById('mailR').innerHTML,
-	};
-	if(error){
-		console.log(error);
-	}else{
-		console.log("usuario registrado");
-	}
-    // userid.push(document.getElementById('usrR').innerHTML);
-    // password.push(document.getElementById('pswR').innerHTML);
-    // mail.push(document.getElementById('mailR').innerHTML);
-    window.open("../template/index.html");
-    console.log("Agregados usuario " + userid + " contraseña " + password + " y mail " + mail);
+  firebase.auth().signOut().then(function() {
+    // Sign-out successful.
+
+  }).catch(function(error) {
+    // An error happened.
+  });
+
 }
 
-function onClickLogIn(){
-    
+function signIn(email, password) {
+
+  firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // ...
+  });
 }
 
-function OnCancel(){
-	document.getElementById('lg01').style.display='none';
-}
+function initAuthentication() {
 
-var modal = document.getElementById('id01');
-var modelLogIn = document.getElementById('lg01');
+  firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
 
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        } else if (event.target == modelLogIn){
-          modalLogin.style.display = "none";
-        }
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+      var displayName = user.displayName;
+      var email = user.email;
+      var emailVerified = user.emailVerified;
+      var photoURL = user.photoURL;
+      var isAnonymous = user.isAnonymous;
+      var uid = user.uid;
+      var providerData = user.providerData;
+      console.log("Signed in user(email): " + email);
+      // ...
     }
 
-//function check(form) { /*function to check userid & password*/
-//    /*the following code checkes whether the entered userid and password are matching*/
-//    if( form.userid.value.toLowerCase() == userId && form.pswrd.value.toLowerCase() == password
-//      ) {
-//        window.open('index.html');/*opens the target page while Id & password matches*/
-//    }
-//    else if (document.getElementById('userid') != userId){
-//        alert("Error Username");/*displays error message*/
-//    } else if(form.pswrd.value != password){
-//        console.log("Messsi")
-//    }
-//}
+  });
+
+}
+
+function registerEmailPassword(email, password) {
+
+  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // ...
+
+    console.error(errorCode, errorMessage);
+
+  });
+
+}
+
+function mygoogle() {
+
+  var provider = new firebase.auth.GoogleAuthProvider();
+
+  firebase.auth().signInWithPopup(provider).then(function(result) {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    var token = result.credential.accessToken;
+    // The signed-in user info.
+    var user = result.user;
+    // ...
+
+  }).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // The email of the user's account used.
+    var email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    var credential = error.credential;
+    // ...
+
+    console.log(errorCode);
+
+  });
+
+}
+
 firebase.initializeApp(config);
+
+initAuthentication();
