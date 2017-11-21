@@ -1,4 +1,19 @@
-# Proyecto-Write-Faster
-Es un proyecto institucional el cueal quiero que sea una pagina web en la que se pueda aprender a escribir rapidamente con diferentes cadenas de texto, el proyecto se basa en la rapidez a la cual el usuario puede typear diferentes palabras y de esa informacion se pueden obtener los caluculos de cuantas palabras se escriben por minuto, el tiempo que tardo en terminar y el porcentaje de acetados y errados de las correspondientes palabras. Ademas cuenta con un grafico el cual se va formando a medida que escribimos las diferentes palabras, el mismo tienbe una informacion diciendo cuantas veces no acertaste la letra y cuantas veces pudiste llegar a acertar.
-![Ejemplos](C:\Users\mrovi\Desktop\Diego\Proyecto-Write-Faster-xd-master\static/ScreenGraphAndTxt.png)
-Tendra un aspectoi visual moderno, que se usa mediante la libreria de bootstrap y tiene diversos botones para interactuar con la pagina, tendra botones de log in y de register para poder ingresar con su cuenta y saber cual fue su record, cual su mejor precision, y por ultimo tendra una forma de vincular con su cuenta de google y algunas mas, se utilizara firebase para autenticacion de usuario, y un servidor con python.
+# Write Faster XD
+***
+Un proyecto institucional facil con el fin de ayudar al usuario a mejorar su velocidad de escritura mediante cadenas de texto aleatorias en la pantalla.
+***
+# Empezemos
+Al iniciar el proyecto nos aparecera la interfaz de usuario donde nosotros empezaremos a escribir tomando como referencua un texto, el juego finalizara cuando el texto se haya escrito por completo.
+***
+# Como empiezo a jugar?
+Simple, solamente tenes que escribir en tu motor de busqueda: localhost:8080/template luego de haber descargado el archivo y hosteado un servidor local.
+***
+# Dependencias
+* [Canvas API](https://canvasjs.com/html5-javascript-dynamic-chart/) para el grafico
+* [Firebase API](http://firebase.com/) para base de datos
+* [Bootstrap API](https://getbootstrap.com/) para interfaz grafica
+* [Type Racer](http://play.typeracer.com/) de donde esta basado el proyecto
+***
+# Autor
+* Diego Gimenez
+***
