@@ -35,10 +35,16 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
+                <div class="collapse navbar-collapse" id="navbarResponsive" id="upBarWithLogIn">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <input class="buttonRegisterIndex" id="btnRegisterIndex" type="button" value="Entra en nuestra pagina" onclick="window.open(login.html)">
+                            <input class="buttonLoginGoogle" id="btnRegisterIndex" type="button" value="Ingresa con tu cuenta de google" onclick="mygoogle()">
+                        </li>
+                        <li class="nav-item">
+                            <input class="buttonLoginPage" id="btnRegisterIndex" type="button" value="Ingresa con tu cuenta de Write faster" onclick="">
+                        </li>
+                        <li class="nav-item">
+                            <input class="buttonRegisterPage" id="btnRegisterIndex" type="button" value="O crea tu cuenta" onclick="mygoogle()">
                         </li>
                     </ul>
                 </div>
@@ -52,30 +58,30 @@
         </header>
 
 
-            <div class="container">
-                        <div class="img">
-                            <div id="chartContainer" class="img-responsive" style="height: 260px; width: 100%;"></div>
-                        </div>
-                        <div>
-                            <!--            <input type="button" onclick="makeid()" value="Generar Texto">-->
-                            <span unselectable="on" class="centerAlign" id="elSpan"
-                                  ></span>
-                            <input class="txtInput" id="txtInput" value="" autocorrect="off" autocapitalize="off" type="text" onkeydown="checkKeyPressed(event)">
-                        </div>
-                        <div class="scores">
-                            <div>
-                                Accuaricy: <span id="lblAccuaricy" class="lblAccuaricy"></span>
-                            </div>
-                            <div>
-                                Avereage: <span id="lblAvereage" class="lblScores"></span>
-                            </div>
-                        </div>
+        <div class="container">
+            <div class="img">
+                <div id="chartContainer" class="img-responsive" style="height: 260px; width: 100%;"></div>
             </div>
+            <div>
+                <!--            <input type="button" onclick="makeid()" value="Generar Texto">-->
+                <span unselectable="on" class="centerAlign" id="elSpan"
+                      ></span>
+                <input class="txtInput" id="txtInput" value="" autocorrect="off" autocapitalize="off" type="text" onkeydown="checkKeyPressed(event)">
+            </div>
+            <div class="scores">
+                <div>
+                    Accuaricy: <span id="lblAccuaricy" class="lblAccuaricy"></span>
+                </div>
+                <div>
+                    Avereage: <span id="lblAvereage" class="lblScores"></span>
+                </div>
+            </div>
+        </div>
 
         <!-- Footer -->
         <footer class="py-5 bg-dark">
             <div class="container">
-                <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+                <p class="m-0 text-center text-white">Copyright &copy; Diego's Website 2017, documentation in my <input class="niceButton" value="github's repository" onclick="window.open('https://github.com/diegogimenez04/Proyecto-Write-Faster-xd')" type="button"> </p>  
             </div>
             <!-- /.container -->
         </footer>

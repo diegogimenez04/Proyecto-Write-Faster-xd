@@ -1,16 +1,5 @@
 console.log('Ejecutando javascript...');
 
-
-// Initialize Firebase
-var config = {
-    apiKey: "AIzaSyD7gFInlF1O98jKXhvwJEHRhNuDPMhuux8",
-    authDomain: "write-faster-net.firebaseapp.com",
-    databaseURL: "https://write-faster-net.firebaseio.com",
-    projectId: "write-faster-net",
-    storageBucket: "",
-    messagingSenderId: "333583171425"
-};
-
 var newText = ""
 var possible = "abcdefghijklmnopqrstuvwxyz";
 var textAray;
@@ -31,6 +20,8 @@ $.ajax({
         alert(JSON.stringify(e));
     },
 })
+
+var avereage;
 
 
 
@@ -197,19 +188,6 @@ function initNewGame(sentence) {
 
 function finishCurrentGame() {
 
-    
-
-    avereage = (correct/pointsCounter[0])*100
-    if (avereage < 0) {
-
-        avereage = 0;
-
-    } else if(avereage>100){
-
-        avereage = 100;
-
-    }
-
     document.getElementById("txtInput").value = "";
 
     pointsCounter = [0, 0];
@@ -220,13 +198,11 @@ function finishCurrentGame() {
 
 }
 
-var scores=[];
-var numScores = 0;
-
-if (finishCurrentGame()){
-    scores.push(numScores + " " + avereage);
-    numScores++;
-    console.log("anda gController");
-}
-
-firebase.initializeApp(config);
+//var scores=[];
+//var numScores = 0;
+//
+//if (finishCurrentGame()){
+//    scores.push(numScores + " " + avereage);
+//    numScores++;
+//    console.log("anda gController");
+//}

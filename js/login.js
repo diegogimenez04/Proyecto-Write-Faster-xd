@@ -7,26 +7,38 @@ var config = {
   messagingSenderId: "333583171425"
 };
 
+var t;
+var sc;
+
 function signOut(argument) {
 
   firebase.auth().signOut().then(function() {
     // Sign-out successful.
-
+    console.log("Succesfull")
   }).catch(function(error) {
     // An error happened.
+    console.log("An error happened")
   });
 
 }
 
 function signIn(email, password) {
-
   firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
     // ...
   });
+  
+  var name = document.createElement('TEXT');
+  var txtSc = document.createElement('TEXT')
+  t = document.createTextNode(email);
+  sc = document.createTextNode(score);
+  name.appendChild(t);
+  
 }
+
+
 
 function initAuthentication() {
 
@@ -40,7 +52,7 @@ function initAuthentication() {
       var emailVerified = user.emailVerified;
       var photoURL = user.photoURL;
       var isAnonymous = user.isAnonymous;
-      var uid = user.uid;
+      var uid = user.uid; 
       var providerData = user.providerData;
       console.log("Signed in user(email): " + email);
       // ...
@@ -51,7 +63,10 @@ function initAuthentication() {
 }
 
 function registerEmailPassword(email, password) {
-
+  
+  email = document.getElementById("txfEmail").value;
+  password = document.getElementById("txfPassw").value;
+  
   firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
@@ -89,6 +104,14 @@ function mygoogle() {
 
   });
 
+}
+
+if (mygoogle == true){
+    document.getElementById('upBarWithLogIn').appendChild(name);
+    document.getElementById('upBarWithLogIn').appendChild(txtSc);
+    document.getElementById('upBarWithLogIn').removeChild(btnLoginGoogle);
+    document.getElementById('upBarWithLogIn').removeChild(btnLoginPage);
+    document.getElementById('upBarWithLogIn').removeChild(btnRegisterPage);
 }
 
 firebase.initializeApp(config);

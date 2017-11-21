@@ -110,6 +110,13 @@ html {
     font-size: 7; 
 }
 
+.niceButton{
+    font-size: 8px;
+    background-color: black;
+    border-color: black;
+    color: white;
+}
+
 @-moz-keyframes blinker {  
     0% { opacity: 1.0; }
     50% { opacity: 0.0; }
