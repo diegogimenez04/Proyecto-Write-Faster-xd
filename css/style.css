@@ -105,6 +105,14 @@ html {
     color: black;
 }
 
+.lblData{
+    text-align: center;
+    align-content: center;
+    align-self: auto;
+    color: black;
+    border-top: 12px;
+}
+
 .centerAlign{
     color: darkred;
     font-size: 7; 

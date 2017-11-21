@@ -22,7 +22,6 @@
         <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
         <script type="text/javascript" src="../js/scripts.js"></script>
         <script type="text/javascript" src="../js/login.js"></script>
-        <script type="text/javascript" src="../js/register.js"></script>
         <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
     </head>
 
@@ -36,16 +35,18 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive" id="upBarWithLogIn">
-                    <ul class="navbar-nav ml-auto">
+                    <ul id="ull" class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <input class="buttonLoginGoogle" id="btnRegisterIndex" type="button" value="Ingresa con tu cuenta de google" onclick="mygoogle()">
                         </li>
+<!--
                         <li class="nav-item">
                             <input class="buttonLoginPage" id="btnRegisterIndex" type="button" value="Ingresa con tu cuenta de Write faster" onclick="">
                         </li>
                         <li class="nav-item">
-                            <input class="buttonRegisterPage" id="btnRegisterIndex" type="button" value="O crea tu cuenta" onclick="mygoogle()">
+                            <input class="buttonRegisterPage" id="btnRegisterIndex" type="button" value="O crea tu cuenta" onclick="">
                         </li>
+-->
                     </ul>
                 </div>
             </div>
@@ -70,10 +71,10 @@
             </div>
             <div class="scores">
                 <div>
-                    Accuaricy: <span id="lblAccuaricy" class="lblAccuaricy"></span>
+                    <p>Score: <span id="lblScore" class="lblData"></span></p>
                 </div>
-                <div>
-                    Avereage: <span id="lblAvereage" class="lblScores"></span>
+                <div class="center">
+                    <p>Avereage: <span id="lblAvereage" class="lblData"></span></p>
                 </div>
             </div>
         </div>

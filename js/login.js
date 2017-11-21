@@ -7,8 +7,12 @@ var config = {
   messagingSenderId: "333583171425"
 };
 
-var t;
-var sc;
+var name;
+var score;
+//var logout = document.createElement('BUTTON');
+//var t = document.createTextNode("Salir de cuenta")
+//logout.appendChild(t);
+//logou.onclick(signOut());
 
 function signOut(argument) {
 
@@ -22,21 +26,20 @@ function signOut(argument) {
 
 }
 
-function signIn(email, password) {
-  firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // ...
-  });
-  
-  var name = document.createElement('TEXT');
-  var txtSc = document.createElement('TEXT')
-  t = document.createTextNode(email);
-  sc = document.createTextNode(score);
-  name.appendChild(t);
-  
-}
+//function signIn(email, password) {
+//
+//  $("#ull").html("");
+//  name = user;
+//  var sc = 1;
+//  $("#ull").append("Welcome " + name + " your scrore is " + sc + logout);
+//
+//  firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+//    // Handle Errors here.
+//    var errorCode = error.code;
+//    var errorMessage = error.message;
+//    // ...
+//  });
+//}
 
 
 
@@ -56,28 +59,30 @@ function initAuthentication() {
       var providerData = user.providerData;
       console.log("Signed in user(email): " + email);
       // ...
+      name = user.displayName;
     }
 
   });
 
 }
 
-function registerEmailPassword(email, password) {
-  
-  email = document.getElementById("txfEmail").value;
-  password = document.getElementById("txfPassw").value;
-  
-  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // ...
-
-    console.error(errorCode, errorMessage);
-
-  });
-
-}
+//function registerEmailPassword(email, password) {
+//
+//  $("#ull").html("");
+//  var sc = 1;
+//  $("#ull").append("Welcome " + name + " your scrore is " + sc);
+//  document.getElementById("ull").setAttribute("style", "color : white");
+//
+//  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+//    // Handle Errors here.
+//    var errorCode = error.code;
+//    var errorMessage = error.message;
+//    // ...
+//
+//    console.error(errorCode, errorMessage);
+//
+//  });
+//}
 
 function mygoogle() {
 
@@ -89,6 +94,19 @@ function mygoogle() {
     // The signed-in user info.
     var user = result.user;
     // ...
+    initAuthentication();
+    console.log(user);
+    firebase.database().ref(user.uid).once('value').then(function(snapshot) {
+      score = snapshot.val();
+      if (score === null){
+        score = 0;
+        firebase.database().ref(user.uid).set(score);
+      }
+      $("#ull").html("");
+      $("#ull").append("Welcome " + name + " your hiscore is " + score);
+      document.getElementById("ull").setAttribute("style", "color : white");
+    });
+
 
   }).catch(function(error) {
     // Handle Errors here.
@@ -104,14 +122,6 @@ function mygoogle() {
 
   });
 
-}
-
-if (mygoogle == true){
-    document.getElementById('upBarWithLogIn').appendChild(name);
-    document.getElementById('upBarWithLogIn').appendChild(txtSc);
-    document.getElementById('upBarWithLogIn').removeChild(btnLoginGoogle);
-    document.getElementById('upBarWithLogIn').removeChild(btnLoginPage);
-    document.getElementById('upBarWithLogIn').removeChild(btnRegisterPage);
 }
 
 firebase.initializeApp(config);

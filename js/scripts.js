@@ -22,8 +22,7 @@ $.ajax({
 })
 
 var avereage;
-
-
+var sc;
 
 /**ABCDEFGHIJKLMNOPQRSTUVWXYZ
 var contador = 0;
@@ -111,6 +110,7 @@ function getCaretPosition (oField) {
 }
 
 var correct = (pointsCounter[0] - pointsCounter[1]);
+sc = correct*100;
 
 function checkKeyPressed(e){
 
@@ -136,15 +136,19 @@ function checkKeyPressed(e){
     console.log(parseInt(keynum));
     console.log(count);
     if(count==false){
-        console.log("esta usando una letra invalida")
+        console.log("esta usando una letra invalida");
+        sc = sc -100;
     }
     else{
         if (key.toLowerCase() == document.getElementById("elSpan").innerHTML[index].toLowerCase()) {
 
             pointsCounter[0] += 1;
+            sc = correct*100;
+            document.getElementById('lblScore').innerHTML = sc;
             document.getElementById("elSpan").setAttribute("style", "color : green");
             correct = (pointsCounter[0] - pointsCounter[1]);
             avereage = (correct/pointsCounter[0])*100;
+            //            avereage = avereage.parseInt();
             document.getElementById('lblAvereage').innerHTML = "Your avereage is " + avereage + " % of correct words";
             xVal++;
             yVal++;
@@ -166,9 +170,12 @@ function checkKeyPressed(e){
 
         } else {
             pointsCounter[1] += 1;
+            sc = correct*100;
+            document.getElementById('lblScore').innerHTML = sc;
             document.getElementById("elSpan").setAttribute("style", "color : red");
             correct = (pointsCounter[0] - pointsCounter[1]);
             avereage = (correct/pointsCounter[0])*100;
+            //            avereage = avereage.parseInt();
             document.getElementById("lblAvereage").innerHTML = "Your avereage is "+ avereage + " % hitted";
             xVal++;
             yVal = yVal - 1;
@@ -187,11 +194,24 @@ function initNewGame(sentence) {
 }
 
 function finishCurrentGame() {
-
+    
     document.getElementById("txtInput").value = "";
 
     pointsCounter = [0, 0];
     window.alert("Le pegaste a " + avereage + "% letras");
+    if (sc > score){
+        $("#ull").html("");
+        $("#ull").append("Congratulation " + name + " your new highscrore is " + sc);
+        var user = firebase.auth().currentUser;
+        if (user) {
+          firebase.database().ref(user.uid).set(sc);
+        }
+    }
+//    else{
+//        $("#ull").html("");
+//        $("#ull").append("Welcome " + name + " your hiscorescrore still being " + score);
+//    }
+
     $(".elSpan").text("");
     $("#txtInput").val(null);
     return avereage;
