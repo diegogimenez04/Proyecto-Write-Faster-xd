@@ -10,7 +10,7 @@ Simple, solamente tenes que escribir en tu motor de busqueda: localhost:8080/tem
 ***
 # Capturas de pantalla
 ![Ventana principal](/home/user2/Escritorio/Gimenez/Brackets/proyectos/Nuevo Proyect/static/Main.png)
-![Ejemplo de juego](/home/user2/Escritorio/Gimenez/Brackets/proyectos/Nuevo Proyect/static/AMedioHacer.png)
+![alt text](https://github.com/diegogimenez04/Proyecto-Write-Faster-xd/blob/master/static/AMedioHacer.png)
 ***
 # Dependencias
 * [Canvas API](https://canvasjs.com/html5-javascript-dynamic-chart/) para el grafico
