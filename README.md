@@ -1,4 +1,4 @@
-# Write Faster XD
+# Write Faster XD (Materia de Sistema de Informacion)
 ***
 Un proyecto institucional facil con el fin de ayudar al usuario a mejorar su velocidad de escritura mediante cadenas de texto aleatorias en la pantalla.
 ***
