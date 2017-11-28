@@ -96,6 +96,7 @@ function mygoogle() {
     // ...
     initAuthentication();
     console.log(user);
+    
     firebase.database().ref(user.uid).once('value').then(function(snapshot) {
       score = snapshot.val();
       if (score === null){
