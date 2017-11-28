@@ -1,6 +1,11 @@
-# Write Faster XD (Materia de Sistema de Informacion)
+# Write Faster XD
 ***
-Un proyecto institucional facil con el fin de ayudar al usuario a mejorar su velocidad de escritura mediante cadenas de texto aleatorias en la pantalla.
+# Especificaciones
+* **Materia: Sistema de Informacion**
+* **Curso: 5 Año "c"**
+* **Autor: Diego Gimenez**
+***
+Este es un proyecto institucional facil, con el fin de ayudar al usuario a mejorar su velocidad de escritura mediante cadenas de texto que se mostraran aleatoriamente.
 ***
 # Empezemos
 Al iniciar el proyecto nos aparecera la interfaz de usuario donde nosotros empezaremos a escribir tomando como referencua un texto, el juego finalizara cuando el texto se haya escrito por completo.
@@ -19,7 +24,4 @@ Simple, solamente tenes que escribir en tu motor de busqueda: localhost:8080/tem
 * [Firebase API](http://firebase.com/) para base de datos
 * [Bootstrap API](https://getbootstrap.com/) para interfaz grafica
 * [Type Racer](http://play.typeracer.com/) de donde esta basado el proyecto
-***
-# Autor
-* Diego Gimenez
 ***
