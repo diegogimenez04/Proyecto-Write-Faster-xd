@@ -9,8 +9,8 @@ Al iniciar el proyecto nos aparecera la interfaz de usuario donde nosotros empez
 Simple, solamente tenes que escribir en tu motor de busqueda: localhost:8080/template luego de haber descargado el archivo y hosteado un servidor local.
 ***
 # Capturas de pantalla
-![Ventana principal](/home/user2/Escritorio/Gimenez/Brackets/proyectos/Nuevo Proyect/static/Main.png)
-![alt text](https://github.com/diegogimenez04/Proyecto-Write-Faster-xd/blob/master/static/AMedioHacer.png)
+![Ventana principal](https://github.com/diegogimenez04/Proyecto-Write-Faster-xd/blob/master/static/AMedioHacer.png)
+![](https://github.com/diegogimenez04/Proyecto-Write-Faster-xd/blob/master/static/AMedioHacer.png)
 ***
 # Dependencias
 * [Canvas API](https://canvasjs.com/html5-javascript-dynamic-chart/) para el grafico
