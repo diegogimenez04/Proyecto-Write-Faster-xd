@@ -10,7 +10,9 @@ Simple, solamente tenes que escribir en tu motor de busqueda: localhost:8080/tem
 ***
 # Capturas de pantalla
 ![Ventana Principal](https://github.com/diegogimenez04/Proyecto-Write-Faster-xd/blob/master/static/AMedioHacer.png)
+Esta sera la ventana inicial donde empezaremos con el Juego 
 ![PopUp](https://github.com/diegogimenez04/Proyecto-Write-Faster-xd/blob/master/static/popup.png)
+Esta es la ventana de Log In donde podremos ingresar con nuestra cuenta y ademas nos permite llevar una puntuacion maxima en nuestro perfil
 ***
 # Dependencias
 * [Canvas API](https://canvasjs.com/html5-javascript-dynamic-chart/) para el grafico
